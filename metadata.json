@@ -1,0 +1,5 @@
+{
+  "name": "Research Question Builder",
+  "description": "An interactive, guided learning app to help Grade 12 students formulate a strong, feasible research question for their Independent Scientific Research course. It acts as a mentor, guiding students from a broad topic to a refined question, considering the scope, timeline, and resources available in a high school context.",
+  "requestFramePermissions": []
+}
