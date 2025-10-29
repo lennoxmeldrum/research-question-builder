@@ -18,8 +18,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const externalApiBaseUrl = 'https://generativelanguage.googleapis.com';
 const externalWsBaseUrl = 'wss://generativelanguage.googleapis.com';
-// Support either API key env-var variant
-const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+// Use API_KEY (set via Cloud Run secrets). GEMINI_API_KEY supported for backward compatibility
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
 
 const staticPath = path.join(__dirname,'dist');
 const publicPath = path.join(__dirname,'public');
@@ -27,7 +27,7 @@ const publicPath = path.join(__dirname,'public');
 
 if (!apiKey) {
     // Only log an error, don't exit. The server will serve apps without proxy functionality
-    console.error("Warning: GEMINI_API_KEY or API_KEY environment variable is not set! Proxy functionality will be disabled.");
+    console.error("Warning: API_KEY environment variable is not set! Proxy functionality will be disabled.");
 }
 else {
   console.log("API KEY FOUND (proxy will use this)")
